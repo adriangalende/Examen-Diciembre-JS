@@ -4,17 +4,32 @@
  */
 var Rick = require('./Rick');
 var Morty = require('./Morty');
+var Jerry = require('./Jerry');
+var clonador = require('./Clonacion');
+
+
+function clonar (p) {
+    if (p == null) throw TypeError();
+    if (Object.create)
+        return Object.create(p);
+    var t = typeof p;
+    if (t !== "object" && t !== "function") throw TypeError();
+    function F() {};
+    F.prototype = p;
+    return new F();
+}
+
+
 
 /**
  * Crea el objeto Rick
  */
 
-
-
 var protoRick = Rick.singleRick();
 protoRick.id = "C-137";
 protoRick.ondas = "altas";
 protoRick.habla = "Es Rick-dículo!";
+
 
 console.assert(protoRick);
 console.assert(protoRick.id == "C-137");
@@ -37,43 +52,66 @@ console.assert(protoMorty.partner == protoRick);
 console.assert(protoMorty.habla == "Oohh man!");
 
 
-// /**
-//  * Crea el objeto Jerry
-//  */
-//
-// console.assert(jerry);
-// console.assert(jerry.id = "Jerry");
-// console.assert(jerry.monedas.length == 4);
-// console.assert(jerry.monedas[0] == "R2-D2");
-// console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
-//
-// /**
-//  * Crea 2 Rick-clones y 1 clon de Morty
-//  * y asocia como partner de ese Morty a uno de los Rick-clones.
-//  */
-//
-// console.assert(clonRick);
-// console.assert(protoRick != clonRick);
-// console.assert(Object.getPrototypeOf(clonRick) == protoRick);
-// console.assert(clonRick.id != "C-137");
-// console.assert(clonRick.ondas == "altas");
-// console.assert(clonRick.habla == "Es Rick-dículo!");
-//
-// console.assert(otroRick);
-// console.assert(protoRick != otroRick);
-// console.assert(Object.getPrototypeOf(otroRick) == protoRick);
-// console.assert(otroRick.id != "C-137");
-// console.assert(otroRick.ondas == "altas");
-// console.assert(otroRick.habla == "Es Rick-dículo!");
-//
-// console.assert(clonMorty);
-// console.assert(clonMorty != protoMorty);
-// console.assert(Object.getPrototypeOf(clonMorty) == protoMorty);
-// console.assert(clonMorty.ondas == "bajas");
-// console.assert(clonMorty.partner == clonRick);
-//
-//
-//
+/**
+ * Crea el objeto Jerry
+ */
+
+var jerry = Jerry.singleJerry();
+jerry.id = "Jerry";
+jerry.monedas = ["R2-D2", "R2-D2 v1", "R2-D2 v2", "R2-D2 v3"];
+
+jerry.speak = function(){
+    return "Tengo una colección de monedas antiguas raras!";
+}
+
+console.assert(jerry);
+console.assert(jerry.id = "Jerry");
+console.assert(jerry.monedas.length == 4);
+console.assert(jerry.monedas[0] == "R2-D2");
+console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
+
+/**
+ * Crea 2 Rick-clones y 1 clon de Morty
+ * y asocia como partner de ese Morty a uno de los Rick-clones.
+ */
+
+var ultimoClon = 138;
+var clonRick = clonar(protoRick);
+// var clonRick = clonador.clonacion().clona(proto
+// Rick);
+
+clonRick.id = ultimoClon+5;
+ultimoClon = clonRick.id;
+
+console.assert(clonRick);
+console.assert(protoRick != clonRick);
+console.assert(Object.getPrototypeOf(clonRick) == protoRick);
+console.assert(clonRick.id != "C-137");
+console.assert(clonRick.ondas == "altas");
+console.assert(clonRick.habla == "Es Rick-dículo!");
+
+
+var otroRick = clonar(protoRick);
+otroRick.id = ultimoClon+5;
+console.assert(otroRick);
+console.assert(protoRick != otroRick);
+console.assert(Object.getPrototypeOf(otroRick) == protoRick);
+console.assert(otroRick.id != "C-137");
+console.assert(otroRick.ondas == "altas");
+console.assert(otroRick.habla == "Es Rick-dículo!");
+
+
+var clonMorty = clonar(protoMorty);
+clonMorty.partner = clonRick;
+
+console.assert(clonMorty);
+console.assert(clonMorty != protoMorty);
+console.assert(Object.getPrototypeOf(clonMorty) == protoMorty);
+console.assert(clonMorty.ondas == "bajas");
+console.assert(clonMorty.partner == clonRick);
+
+
+
 // /**
 //  * Crea el objeto universo
 //  */

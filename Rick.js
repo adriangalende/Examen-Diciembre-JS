@@ -9,6 +9,9 @@ function Rick() {
     this.habla = "Es Rick-dículo!";
 }
 
+Rick.prototype.dispara = function(objeto){
+
+}
 
 function singletonRick() {
 

@@ -21,12 +21,11 @@ function clonar (p) {
 }
 
 
-
 /**
  * Crea el objeto Rick
  */
 
-var protoRick = Rick.singleRick();
+var protoRick = Rick.singleRick().get();
 protoRick.id = "C-137";
 protoRick.ondas = "altas";
 protoRick.habla = "Es Rick-dículo!";
@@ -40,7 +39,7 @@ console.assert(protoRick.habla == "Es Rick-dículo!");
 /**
  * Crea el objeto Morty
  */
-var protoMorty = Morty.singleMorty();
+var protoMorty = Morty.singleMorty().get();
 protoMorty.id = "earthMorty";
 protoMorty.ondas = "bajas";
 protoMorty.partner = protoRick;
@@ -57,13 +56,10 @@ console.assert(protoMorty.habla == "Oohh man!");
  * Crea el objeto Jerry
  */
 
-var jerry = Jerry.singleJerry();
+var jerry = Jerry.singleJerry().get();
 jerry.id = "Jerry";
 jerry.monedas = ["R2-D2", "R2-D2 v1", "R2-D2 v2", "R2-D2 v3"];
 
-jerry.speak = function(){
-    return "Tengo una colección de monedas antiguas raras!";
-}
 
 console.assert(jerry);
 console.assert(jerry.id = "Jerry");
@@ -154,6 +150,15 @@ console.assert(universo.length == 1);
  *
  * Rick dispara la pistola y se añade al universo la dimensión "Fart"
  *  */
+var gun = {}
+
+gun.historial = new Array();
+gun.historial.push("Tierra");
+
+var nuevoDestino = protoRick.dispara("pistola","Fart");
+
+universo[nuevoDestino] = new Array();
+universo.length++;
 
 console.assert(gun);
 console.assert(gun.historial.length == 1);
@@ -161,20 +166,36 @@ console.assert(gun.historial.length == 1);
 console.assert("Fart" in universo);
 console.assert(universo.length == 2);
 
-// /**
-//  * Todos SALVO Jerry cruzan a la dimensión "Fart".
-//  * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".
-//  *
-//  * Es necesaria una función cruzarDimension para ser reutilizada posteriormente.
-//  * Puedes situarla en aquel componente que estimes más adecuado.
-//  *
-//  * La pistola añade a su historial "Fart".
-//  */
-//
-// console.assert(universo["Fart"].length == 5);
-// console.assert(universo["Tierra"].length == 1);
-// console.assert(gun.historial.length == 2);
-//
+
+/**
+ * Todos SALVO Jerry cruzan a la dimensión "Fart".
+ * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".
+ *
+ * Es necesaria una función cruzarDimension para ser reutilizada posteriormente.
+ * Puedes situarla en aquel componente que estimes más adecuado.
+ *
+ * La pistola añade a su historial "Fart".
+ */
+
+
+Universo.moverEntreUniveros = function (origen, destino, personaje){
+    Universo[destino].push(personaje);
+    Universo[origen] = personajes.slice(personajes.indexOf(personaje),personajes.length);
+}
+
+gun.historial.push(nuevoDestino);
+
+universo.moverEntreUniveros("Tierra","Fart",protoRick);
+universo.moverEntreUniveros("Tierra","Fart",protoMorty);
+universo.moverEntreUniveros("Tierra","Fart",clonRick);
+universo.moverEntreUniveros("Tierra","Fart",clonMorty);
+universo.moverEntreUniveros("Tierra","Fart",otroRick);
+
+
+console.assert(universo["Fart"].length == 5);
+console.assert(universo["Tierra"].length == 1);
+console.assert(gun.historial.length == 2);
+
 // /**
 //  * Si haces un scan de la pistola, se muestra en consola
 //  * la lista de dimensiones, desde la más reciente a la más

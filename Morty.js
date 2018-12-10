@@ -7,7 +7,6 @@ function Morty(){
     this.id;
     this.ondas;
     this.partner = null;
-    this.habla = "Oohh man!";
 }
 
 Morty.prototype.asignarPartner = function(partner){
@@ -17,6 +16,9 @@ Morty.prototype.asignarPartner = function(partner){
 }
 
 
+Morty.prototype.habla = function(){
+    return "Oohh man!";
+}
 
 function singletonMorty() {
 

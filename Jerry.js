@@ -8,7 +8,7 @@ Jerry.prototype.speak = function(){
     var habla = function(){
         return "Tengo una colección de monedas antiguas raras!";
     }
-    return habla;
+    return habla();
 }
 
 

@@ -3,15 +3,20 @@
  * @constructor
  */
 
+
 function Rick() {
     this.id;
     this.ondas;
-    this.habla = "Es Rick-dículo!";
 }
 
-Rick.prototype.dispara = function(objeto){
-
+Rick.prototype.dispara = function(objeto, destino){
+    return destino;
 }
+
+Rick.prototype.habla = function(){
+    return "Es Rick-dículo!";
+}
+
 
 function singletonRick() {
 

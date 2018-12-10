@@ -211,32 +211,46 @@ console.log(gun.scan());
 console.assert(gun.historial.length == 2);
 
 
-// /**
-//  * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
-//  */
-//
-// console.assert("Coach" in universo);
-// console.assert(universo.length == 3);
-//
-// /**
-//  * Los cuatro cruzan a la dimensión "Coach".
-//  *
-//  * Has de eliminarlos del mundo "Fart" y meterlos en la nueva dimensión "Coach".
-//  *
-//  * La pistola añade a su historial "Fart".
-//  *
-//  * Si haces un scan de la pistola, se muestra en consola
-//  * Coaches, Fart, Tierra.
-//  */
+/**
+ * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
+ */
+
+nuevoDestino = protoRick.dispara("pistola","Coach");
+
+universo[nuevoDestino] = new Array();
+universo.length++;
+
+console.assert("Coach" in universo);
+console.assert(universo.length == 3);
+
+/**
+ * Los cuatro cruzan a la dimensión "Coach".
+ *
+ * Has de eliminarlos del mundo "Fart" y meterlos en la nueva dimensión "Coach".
+ *
+ * La pistola añade a su historial "Fart".
+ *
+ * Si haces un scan de la pistola, se muestra en consola
+ * Coaches, Fart, Tierra.
+ */
+
+
+universo.moverEntreUniveros("Fart","Coach",protoRick);
+universo.moverEntreUniveros("Fart","Coach",protoMorty);
+universo.moverEntreUniveros("Fart","Coach",clonRick);
+universo.moverEntreUniveros("Fart","Coach",clonMorty);
+universo.moverEntreUniveros("Fart","Coach",otroRick);
+
+// gun.historial.push("Coach");
 //
 // console.assert(universo["Coaches"].length == 5);
 // console.assert(universo["Fart"].length == 0);
 // console.assert(universo["Tierra"].length == 1);
 // console.log(gun.scan());
 // console.assert(gun.historial.length == 3);
-//
-//
-//
+
+
+
 // /**
 //  * Crea un Doofus Rick segun se indica en el README
 //  */

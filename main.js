@@ -2,13 +2,14 @@
 /** 
  * Importa los módulos de tus clases 
  */
-
+var Rick = require('./Rick');
+var Morty = require('./Morty');
 
 /**
  * Crea el objeto Rick
  */
 
-var Rick = require('./Rick');
+
 
 var protoRick = Rick.singleRick();
 protoRick.id = "C-137";
@@ -23,6 +24,11 @@ console.assert(protoRick.habla == "Es Rick-dículo!");
 /**
  * Crea el objeto Morty
  */
+var protoMorty = Morty.singleMorty();
+protoMorty.id = "earthMorty";
+protoMorty.ondas = "bajas";
+protoMorty.partner = protoRick;
+protoMorty.habla = "Oohh man!";
 
 console.assert(protoMorty);
 console.assert(protoMorty.id == "earthMorty");

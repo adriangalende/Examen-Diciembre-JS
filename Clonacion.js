@@ -13,6 +13,10 @@ Clonar.prototype.clona = function(){
     return new F();
 }
 
+Clonar.prototype.asignarId = function(id){
+    return id+5;
+}
+
 exports.clonacion = function () {
     return Clonar();
 };

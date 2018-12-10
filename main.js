@@ -6,6 +6,7 @@ var Rick = require('./Rick');
 var Morty = require('./Morty');
 var Jerry = require('./Jerry');
 var clonador = require('./Clonacion');
+var Universo = require('./Universo')
 
 
 function clonar (p) {
@@ -112,14 +113,16 @@ console.assert(clonMorty.partner == clonRick);
 
 
 
-// /**
-//  * Crea el objeto universo
-//  */
-//
-// console.assert(universo);
-// console.assert(Object.getPrototypeOf(universo) != Array.prototype);
-// console.assert(universo.length == 0);
-//
+/**
+ * Crea el objeto universo
+ */
+
+var universo = Universo;
+universo.length = 0;
+console.assert(universo);
+console.assert(Object.getPrototypeOf(universo) != Array.prototype);
+console.assert(universo.length == 0);
+
 // /**
 //  * Crea la primera dimensión, el `Array` mundo `Tierra`,
 //  * mete en él a los 6 objetos que has creado (Rick, Morty y Jerry,

@@ -123,33 +123,44 @@ console.assert(universo);
 console.assert(Object.getPrototypeOf(universo) != Array.prototype);
 console.assert(universo.length == 0);
 
-// /**
-//  * Crea la primera dimensión, el `Array` mundo `Tierra`,
-//  * mete en él a los 6 objetos que has creado (Rick, Morty y Jerry,
-//  * 2 rick-clones y 1 clon de Morty) y añádelo al objeto `universo`.
-//  */
-//
-// console.assert(tierra);
-// console.assert(Object.getPrototypeOf(tierra) == Array.prototype);
-// console.assert(tierra.length == 6);
-// console.assert("Tierra" in universo);
-// console.assert(universo.length == 1);
-//
-// /**
-//  * Crea el objeto portal gun / pistola de portales.
-//  *
-//  * Dale la pistola al protoRick para que la dispare.
-//  * Pon a la tierra en el principio del historial de dimensiones de la pistola.
-//  *
-//  * Rick dispara la pistola y se añade al universo la dimensión "Fart"
-//  *  */
-//
-// console.assert(gun);
-// console.assert(gun.historial.length == 1);
-//
-// console.assert("Fart" in universo);
-// console.assert(universo.length == 2);
-//
+/**
+ * Crea la primera dimensión, el `Array` mundo `Tierra`,
+ * mete en él a los 6 objetos que has creado (Rick, Morty y Jerry,
+ * 2 rick-clones y 1 clon de Morty) y añádelo al objeto `universo`.
+ */
+
+var personajes = [protoRick, protoMorty, jerry, clonRick, clonMorty, otroRick];
+var tierra = new Array();
+
+universo["Tierra"] = tierra;
+
+var indice = 0;
+for(personaje in personajes){
+    tierra.push(personajes[personaje]);
+}
+universo.length = 1;
+
+console.assert(tierra);
+console.assert(Object.getPrototypeOf(tierra) == Array.prototype);
+console.assert(tierra.length == 6);
+console.assert("Tierra" in universo);
+console.assert(universo.length == 1);
+
+/**
+ * Crea el objeto portal gun / pistola de portales.
+ *
+ * Dale la pistola al protoRick para que la dispare.
+ * Pon a la tierra en el principio del historial de dimensiones de la pistola.
+ *
+ * Rick dispara la pistola y se añade al universo la dimensión "Fart"
+ *  */
+
+console.assert(gun);
+console.assert(gun.historial.length == 1);
+
+console.assert("Fart" in universo);
+console.assert(universo.length == 2);
+
 // /**
 //  * Todos SALVO Jerry cruzan a la dimensión "Fart".
 //  * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".

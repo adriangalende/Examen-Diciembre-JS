@@ -154,6 +154,11 @@ var gun = {}
 
 gun.historial = new Array();
 gun.historial.push("Tierra");
+gun.scan = function(){
+    for(evento in gun.historial){
+        console.log(gun.historial[evento]);
+    }
+}
 
 var nuevoDestino = protoRick.dispara("pistola","Fart");
 
@@ -196,16 +201,16 @@ console.assert(universo["Fart"].length == 5);
 console.assert(universo["Tierra"].length == 1);
 console.assert(gun.historial.length == 2);
 
-// /**
-//  * Si haces un scan de la pistola, se muestra en consola
-//  * la lista de dimensiones, desde la más reciente a la más
-//  * antigua: Fart, Tierra.
-//  */
-//
-// console.log(gun.scan());
-// console.assert(gun.historial.length == 2);
-//
-//
+/**
+ * Si haces un scan de la pistola, se muestra en consola
+ * la lista de dimensiones, desde la más reciente a la más
+ * antigua: Fart, Tierra.
+ */
+
+console.log(gun.scan());
+console.assert(gun.historial.length == 2);
+
+
 // /**
 //  * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
 //  */

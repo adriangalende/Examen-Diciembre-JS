@@ -45,21 +45,20 @@ console.assert(protoMorty.partner == protoRick);
 console.assert(protoMorty.habla == "Oohh man!");
 
 
-// /**
-//  * Crea el objeto Jerry
-//  */
-//
-// var jerry = Jerry.singleJerry().get();
-// jerry.id = "Jerry";
-// jerry.monedas = ["R2-D2", "R2-D2 v1", "R2-D2 v2", "R2-D2 v3"];
-//
-//
-// console.assert(jerry);
-// console.assert(jerry.id = "Jerry");
-// console.assert(jerry.monedas.length == 4);
-// console.assert(jerry.monedas[0] == "R2-D2");
-// console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
-//
+/**
+ * Crea el objeto Jerry
+ */
+
+var jerry = Jerry.singleJerry().get();
+jerry.id = "Jerry";
+
+
+console.assert(jerry);
+console.assert(jerry.id = "Jerry");
+console.assert(jerry.monedas.length == 4);
+console.assert(jerry.monedas[0] == "R2-D2");
+console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
+
 // /**
 //  * Crea 2 Rick-clones y 1 clon de Morty
 //  * y asocia como partner de ese Morty a uno de los Rick-clones.

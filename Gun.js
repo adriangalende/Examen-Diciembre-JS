@@ -4,10 +4,11 @@ const gun = {
     historial: [],
     disparar: function(dimension){
         this.historial.unshift(dimension);
-        moduloUniverso.universo.crearDimension("Fart",null);
+        moduloUniverso.universo.crearDimension(dimension,null);
     },
     scan:function () {
-        for(evento in gun.historial()){
+        console.log("---- historial ----");
+        for(evento in gun.historial){
             console.log(gun.historial[evento]);
         }
     }

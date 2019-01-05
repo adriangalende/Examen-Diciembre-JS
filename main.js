@@ -149,53 +149,43 @@ console.assert(universo["Fart"].length == 5);
 console.assert(universo["Tierra"].length == 1);
 console.assert(gun.historial.length == 2);
 
-// /**
-//  * Si haces un scan de la pistola, se muestra en consola
-//  * la lista de dimensiones, desde la más reciente a la más
-//  * antigua: Fart, Tierra.
-//  */
-//
-// console.log(gun.scan());
-// console.assert(gun.historial.length == 2);
-//
-//
-// /**
-//  * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
-//  */
-//
-// nuevoDestino = protoRick.dispara("pistola","Coach");
-//
-// universo[nuevoDestino] = new Array();
-// universo.length++;
-//
-// console.assert("Coach" in universo);
-// console.assert(universo.length == 3);
-//
-// /**
-//  * Los cuatro cruzan a la dimensión "Coach".
-//  *
-//  * Has de eliminarlos del mundo "Fart" y meterlos en la nueva dimensión "Coach".
-//  *
-//  * La pistola añade a su historial "Fart".
-//  *
-//  * Si haces un scan de la pistola, se muestra en consola
-//  * Coaches, Fart, Tierra.
-//  */
-//
-//
-// universo.moverEntreUniveros("Fart","Coach",protoRick);
-// universo.moverEntreUniveros("Fart","Coach",protoMorty);
-// universo.moverEntreUniveros("Fart","Coach",clonRick);
-// universo.moverEntreUniveros("Fart","Coach",clonMorty);
-// universo.moverEntreUniveros("Fart","Coach",otroRick);
+/**
+ * Si haces un scan de la pistola, se muestra en consola
+ * la lista de dimensiones, desde la más reciente a la más
+ * antigua: Fart, Tierra.
+ */
 
-// gun.historial.push("Coach");
-//
-// console.assert(universo["Coaches"].length == 5);
-// console.assert(universo["Fart"].length == 0);
-// console.assert(universo["Tierra"].length == 1);
-// console.log(gun.scan());
-// console.assert(gun.historial.length == 3);
+console.log(gun.scan());
+console.assert(gun.historial.length == 2);
+
+
+/**
+ * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
+ */
+
+gun.disparar("Coach")
+
+console.assert("Coach" in universo);
+console.assert(universo.length == 3);
+
+/**
+ * Los cuatro cruzan a la dimensión "Coach".
+ *
+ * Has de eliminarlos del mundo "Fart" y meterlos en la nueva dimensión "Coach".
+ *
+ * La pistola añade a su historial "Fart".
+ *
+ * Si haces un scan de la pistola, se muestra en consola
+ * Coaches, Fart, Tierra.
+ */
+
+universo.moverEntreUniversos("Fart", "Coach", null);
+
+console.assert(universo["Coach"].length == 5);
+console.assert(universo["Fart"].length == 0);
+console.assert(universo["Tierra"].length == 1);
+console.log(gun.scan());
+console.assert(gun.historial.length == 3);
 
 
 

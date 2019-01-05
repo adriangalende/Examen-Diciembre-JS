@@ -32,22 +32,19 @@ console.assert(protoRick.id == "C-137");
 console.assert(protoRick.ondas == "altas");
 console.assert(protoRick.habla == "Es Rick-dículo!");
 
-// /**
-//  * Crea el objeto Morty
-//  */
-// var protoMorty = Morty.singleMorty().get();
-// protoMorty.id = "earthMorty";
-// protoMorty.ondas = "bajas";
-// protoMorty.partner = protoRick;
-// protoMorty.habla = "Oohh man!";
-//
-// console.assert(protoMorty);
-// console.assert(protoMorty.id == "earthMorty");
-// console.assert(protoMorty.ondas == "bajas");
-// console.assert(protoMorty.partner == protoRick);
-// console.assert(protoMorty.habla == "Oohh man!");
-//
-//
+/**
+ * Crea el objeto Morty
+ */
+var protoMorty = Morty.singleMorty().get();
+protoMorty.asignarPartner(protoRick);
+
+console.assert(protoMorty);
+console.assert(protoMorty.id == "earthMorty");
+console.assert(protoMorty.ondas == "bajas");
+console.assert(protoMorty.partner == protoRick);
+console.assert(protoMorty.habla == "Oohh man!");
+
+
 // /**
 //  * Crea el objeto Jerry
 //  */

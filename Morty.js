@@ -3,30 +3,20 @@
  * @constructor
  */
 
-function Morty(){
-    this.id;
-    this.ondas;
-    this.partner = null;
+const morty = {
+    id: "earthMorty",
+    ondas: "bajas",
+    habla:"Oohh man!"
 }
 
-Morty.prototype.asignarPartner = function(partner){
-    if(!this.partner){
-        this.partner = partner;
-    }
-}
-
-
-Morty.prototype.habla = function(){
-    return "Oohh man!";
+morty.asignarPartner=function(partner){
+    this.partner = partner;
 }
 
 function singletonMorty() {
-
-    const prototipo = new Morty();
-
     return {
         get: function () {
-            return prototipo;
+            return morty;
         }
     };
 }

@@ -6,7 +6,8 @@ var Rick = require('./Rick');
 var Morty = require('./Morty');
 var Jerry = require('./Jerry');
 var clonador = require('./Clonacion');
-var moduloUniverso = require('./Universo')
+var moduloUniverso = require('./Universo');
+var moduloGun = require('./Gun');
 
 
 /**
@@ -112,36 +113,25 @@ console.assert(tierra.length == 6);
 console.assert("Tierra" in universo);
 console.assert(universo.length == 1);
 
-// /**
-//  * Crea el objeto portal gun / pistola de portales.
-//  *
-//  * Dale la pistola al protoRick para que la dispare.
-//  * Pon a la tierra en el principio del historial de dimensiones de la pistola.
-//  *
-//  * Rick dispara la pistola y se añade al universo la dimensión "Fart"
-//  *  */
-// var gun = {}
-//
-// gun.historial = new Array();
-// gun.historial.push("Tierra");
-// gun.scan = function(){
-//     for(evento in gun.historial.reverse()){
-//         console.log(gun.historial[evento]);
-//     }
-// }
-//
-// var nuevoDestino = protoRick.dispara("pistola","Fart");
-//
-// universo[nuevoDestino] = new Array();
-// universo.length++;
-//
-// console.assert(gun);
-// console.assert(gun.historial.length == 1);
-//
-// console.assert("Fart" in universo);
-// console.assert(universo.length == 2);
-//
-//
+/**
+ * Crea el objeto portal gun / pistola de portales.
+ *
+ * Dale la pistola al protoRick para que la dispare.
+ * Pon a la tierra en el principio del historial de dimensiones de la pistola.
+ *
+ * Rick dispara la pistola y se añade al universo la dimensión "Fart"
+ *  */
+
+var gun = moduloGun.gun;
+gun.disparar("Fart");
+
+console.assert(gun);
+console.assert(gun.historial.length == 1);
+
+console.assert("Fart" in universo);
+console.assert(universo.length == 2);
+
+
 // /**
 //  * Todos SALVO Jerry cruzan a la dimensión "Fart".
 //  * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".

@@ -2,6 +2,9 @@
 const universo = {
     length:0,
     crearDimension: function(nombreDimension, dimension){
+        if(dimension == null){
+            dimension = [];
+        }
         universo[nombreDimension] = dimension;
         this.length++;
     }

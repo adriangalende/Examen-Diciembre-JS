@@ -1,9 +1,13 @@
 
-Universo = {
+const universo = {
     length:0
 }
 
-Universo.moverEntreUniveros = function (origen, destino, personaje){
+universo.moverEntreUniveros = function (origen, destino, personaje){
     Universo[origen].delete(personaje);
     Universo[destino].push(personaje);
 }
+
+module.exports = {
+    universo:universo
+};

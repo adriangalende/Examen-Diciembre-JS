@@ -10,9 +10,20 @@ const universo = {
     }
 }
 
-universo.moverEntreUniveros = function (origen, destino, personaje){
-    Universo[origen].delete(personaje);
-    Universo[destino].push(personaje);
+universo.moverEntreUniversos = function (origen, destino, noPasa){
+    var universoAux = [];
+    for(personajeIdx in universo[origen]){
+        let personaje = universo[origen][personajeIdx];
+        if(personaje !== noPasa){
+            universo[destino].push(personaje);
+            universoAux.push(personaje);
+        }
+    }
+
+    for(personaje in universoAux){
+        universo[origen].splice(universo[origen].indexOf(personaje), 1);
+    }
+
 }
 
 module.exports = {

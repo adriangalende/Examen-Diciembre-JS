@@ -132,35 +132,23 @@ console.assert("Fart" in universo);
 console.assert(universo.length == 2);
 
 
-// /**
-//  * Todos SALVO Jerry cruzan a la dimensión "Fart".
-//  * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".
-//  *
-//  * Es necesaria una función cruzarDimension para ser reutilizada posteriormente.
-//  * Puedes situarla en aquel componente que estimes más adecuado.
-//  *
-//  * La pistola añade a su historial "Fart".
-//  */
-//
-//
-// Universo.moverEntreUniveros = function (origen, destino, personaje){
-//     Universo[destino].push(personaje);
-//     Universo[origen] = personajes.slice(personajes.indexOf(personaje),personajes.length);
-// }
-//
-// gun.historial.push(nuevoDestino);
-//
-// universo.moverEntreUniveros("Tierra","Fart",protoRick);
-// universo.moverEntreUniveros("Tierra","Fart",protoMorty);
-// universo.moverEntreUniveros("Tierra","Fart",clonRick);
-// universo.moverEntreUniveros("Tierra","Fart",clonMorty);
-// universo.moverEntreUniveros("Tierra","Fart",otroRick);
-//
-//
-// console.assert(universo["Fart"].length == 5);
-// console.assert(universo["Tierra"].length == 1);
-// console.assert(gun.historial.length == 2);
-//
+/**
+ * Todos SALVO Jerry cruzan a la dimensión "Fart".
+ * Has de eliminarlos del mundo tierra y meterlos en la nueva dimensión "Fart".
+ *
+ * Es necesaria una función cruzarDimension para ser reutilizada posteriormente.
+ * Puedes situarla en aquel componente que estimes más adecuado.
+ *
+ * La pistola añade a su historial "Fart".
+ */
+
+gun.historial.push("Tierra");
+universo.moverEntreUniversos("Tierra","Fart",jerry);
+
+console.assert(universo["Fart"].length == 5);
+console.assert(universo["Tierra"].length == 1);
+console.assert(gun.historial.length == 2);
+
 // /**
 //  * Si haces un scan de la pistola, se muestra en consola
 //  * la lista de dimensiones, desde la más reciente a la más

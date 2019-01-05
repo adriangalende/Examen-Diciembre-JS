@@ -4,27 +4,17 @@
  */
 
 
-function Rick() {
-    this.id;
-    this.ondas;
-}
-
-Rick.prototype.dispara = function(objeto, destino){
-    return destino;
-}
-
-Rick.prototype.habla = function(){
-    return "Es Rick-dículo!";
+const rick = {
+    id:"C-137",
+    ondas: "altas",
+    habla: "Es Rick-dículo!"
 }
 
 
-function singletonRick() {
-
-    const prototipo = new Rick();
-
+function singletonRick(id, ondas) {
     return {
         get: function () {
-            return prototipo;
+            return rick;
         }
     };
 }

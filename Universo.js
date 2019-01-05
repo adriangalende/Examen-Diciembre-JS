@@ -1,6 +1,10 @@
 
 const universo = {
-    length:0
+    length:0,
+    crearDimension: function(nombreDimension, dimension){
+        universo[nombreDimension] = dimension;
+        this.length++;
+    }
 }
 
 universo.moverEntreUniveros = function (origen, destino, personaje){

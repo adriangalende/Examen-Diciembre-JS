@@ -96,29 +96,22 @@ console.assert(universo);
 console.assert(Object.getPrototypeOf(universo) != Array.prototype);
 console.assert(universo.length == 0);
 
-// /**
-//  * Crea la primera dimensión, el `Array` mundo `Tierra`,
-//  * mete en él a los 6 objetos que has creado (Rick, Morty y Jerry,
-//  * 2 rick-clones y 1 clon de Morty) y añádelo al objeto `universo`.
-//  */
-//
-// var personajes = [protoRick, protoMorty, jerry, clonRick, clonMorty, otroRick];
-// var tierra = new Array();
-//
-// universo["Tierra"] = tierra;
-//
-// var indice = 0;
-// for(personaje in personajes){
-//     tierra.push(personajes[personaje]);
-// }
-// universo.length = 1;
-//
-// console.assert(tierra);
-// console.assert(Object.getPrototypeOf(tierra) == Array.prototype);
-// console.assert(tierra.length == 6);
-// console.assert("Tierra" in universo);
-// console.assert(universo.length == 1);
-//
+/**
+ * Crea la primera dimensión, el `Array` mundo `Tierra`,
+ * mete en él a los 6 objetos que has creado (Rick, Morty y Jerry,
+ * 2 rick-clones y 1 clon de Morty) y añádelo al objeto `universo`.
+ */
+
+var personajes = [protoRick, protoMorty, jerry, clonRick, clonMorty, otroRick];
+let tierra = personajes;
+universo.crearDimension("Tierra", tierra);
+
+console.assert(tierra);
+console.assert(Object.getPrototypeOf(tierra) == Array.prototype);
+console.assert(tierra.length == 6);
+console.assert("Tierra" in universo);
+console.assert(universo.length == 1);
+
 // /**
 //  * Crea el objeto portal gun / pistola de portales.
 //  *

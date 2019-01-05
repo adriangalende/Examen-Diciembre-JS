@@ -76,17 +76,17 @@ console.assert(otroRick.ondas == "altas");
 console.assert(otroRick.habla == "Es Rick-dículo!");
 
 
-// var clonMorty = clonar(protoMorty);
-// clonMorty.partner = clonRick;
-//
-// console.assert(clonMorty);
-// console.assert(clonMorty != protoMorty);
-// console.assert(Object.getPrototypeOf(clonMorty) == protoMorty);
-// console.assert(clonMorty.ondas == "bajas");
-// console.assert(clonMorty.partner == clonRick);
-//
-//
-//
+var clonMorty = clonador.clonacion().clona(protoMorty);
+clonMorty.id = clonador.clonacion().asignarId(clonMorty.id);
+clonMorty.asignarPartner(clonRick);
+console.log("La id de clonMorty es: "+clonMorty.id);
+
+console.assert(clonMorty);
+console.assert(clonMorty != protoMorty);
+console.assert(Object.getPrototypeOf(clonMorty) == protoMorty);
+console.assert(clonMorty.ondas == "bajas");
+console.assert(clonMorty.partner == clonRick);
+
 // /**
 //  * Crea el objeto universo
 //  */

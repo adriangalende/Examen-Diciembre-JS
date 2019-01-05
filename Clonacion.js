@@ -1,22 +1,14 @@
-function Clonar(){
-}
-
-Clonar.prototype.clona = function(){
-    if (p == null) throw TypeError();
-    if (Object.create)
-        return Object.create(p);
-    var t = typeof p;
-    if (t !== "object" && t !== "function") throw TypeError();
-
-    function F() {};
-    F.prototype = p;
-    return new F();
-}
-
-Clonar.prototype.asignarId = function(id){
-    return id+5;
+var clonar = {
+    clona : function (p) {
+        if (p == null) throw TypeError();
+        if (Object.create)
+        return Object.create(p);;
+    },
+        asignarId : function (id) {
+            return "C-"+Math.floor(Math.random() * (1000 - 137) + 137);;
+        }
 }
 
 exports.clonacion = function () {
-    return Clonar();
+    return clonar;
 };
